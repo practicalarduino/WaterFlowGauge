@@ -1,0 +1,44 @@
+Water Flow Gauge
+================
+
+Copyright 2009 Jonathan Oxer
+Copyright 2009 Hugh Blemings
+
++---------------------------------------------------------------------+
+| This project is featured in the book "Practical Arduino" by         |
+| Jonathan Oxer and Hugh Blemings (Apress, 2009). More information    |
+| about the book and this project is available at:                    |
+|                                                                     |
+| www.practicalarduino.com/projects/easy/water-flow-gauge             |
++---------------------------------------------------------------------+
+
+Measuring the consumption of a resource that is measured by volume can
+be more tricky than it sounds. Usage of materials such as water, gas,
+and even electricity is typically measured by gauges that determine
+either instantaneous flow rate or cumulative volume over time. Both
+techniques have problems: measuring flow rate at frequent intervals
+allows you to do time-based reporting and generate a graph of how the
+flow rate varied over time, but to determine the total consumption by
+volume across a specific time period you then have to integrate the
+data and there is the danger of under-reporting usage if your sample
+rate is slow and usage rapidly fluctuates or spikes. Measuring
+cumulative volume makes it easy to determine total consumption by
+volume across a period and is accurate in terms of total usage but to
+generate a flow rate graph you then need to calculate the difference
+between each sample, and if your recording interval isn't brief enough
+any short-term spikes in usage will be averaged out across the recording
+interval and may not show clearly on the graph.
+
+Flow gauges typically output a series of pulses proportional to the flow
+rate which means that to interpret them it's necessary to implement a
+simple frequency counter. This is actually the same way a car speed
+sensor works: it outputs a pulse for each rotation of a wheel so that
+the pulse frequency varies proportionally to the vehicle speed. The car
+speedo then displays a scaled version of the current pulse frequency
+while the odometer displays a scaled cumulative pulse count.
+
+This project uses a flow rate gauge containing a hall-effect sensor
+that outputs a pulse rate proportional to flow rate, so not only is it a
+useful project in its own right but it also demonstrates a very useful
+technique that you can use in a wide range of projects that need to
+measure the rate at which something happens.
